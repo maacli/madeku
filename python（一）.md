@@ -1,0 +1,553 @@
+、、、
+
+
+
+``` python
+# 为单行注释
+​``` 三个点为多行注释（前后各用三个点包起来）
+```
+
+## 1.变量及类型
+
+- 变量可以是``任意的数据类型``,在程序中用一个变量名表示
+
+- 变量名必须是``大小写英文、数字和下划线``的组合，且不能以数字开头，如：
+
+  ```python
+  >>> a=1 #变量a是一个整数
+  >>> t_007='t007' #变量t_007是一个字符串	
+  ```
+
+  
+
+- 赋值（比如a='abc')时，python解释器干了两件事
+  - 在内存中创建一个'abc'的字符串
+  - 在内存中创建一个名为a的变量，并把它指向'abc'
+
+## 2.关键字
+
+- 查看关键字:
+
+  打开cdm  --> 输入python
+
+  ```python
+  >>> import keyword
+  >>> keyword.kwlist
+  ```
+
+  ```
+  'False', 'None', 'True', '__peg_parser__', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
+  ```
+
+##  3.输出
+
+### 3.1 普通输出
+
+```python
+# 打印
+print('hello world')
+```
+
+###  3.2 格式化输出
+
+```python
+print("我今年20岁")
+```
+
+```python
+age=20
+print("我今年%d岁"%age)
+```
+
+```python
+age=20
+name=Mike
+print("我的姓名是%s，年龄是%d"%(name，age))
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113172627645.png)
+
+```  python
+print("") 	#也表示换行
+```
+
+
+
+**常用格式符号**
+
+| 格式符号 |             转换              |
+| :------: | :---------------------------: |
+|    %c    |             字符              |
+|    %s    | 通过str（）字符串转换来格式化 |
+|    %d    |       有符号十进制整数        |
+|    %u    |       无符号十进制整数        |
+|    %f    |           浮点实数            |
+
+### 3.3换行输出
+
+在输出的时候，如果有\n那么，此时\n后的内容会出现在下一行显示
+
+```python
+print("123456789\n")
+```
+
+
+
+## 4.输入
+
+**input(" 	")**
+
+```python
+password=input("请输入密码：")
+print('输入的密码是：',password)
+```
+
+- input()的小括号中放入的是提示信息，用来在获取数据之前给用户一个简单的提示
+- input()在从键盘获取了数据以后，会存放到等号左边的变量中
+- input()函数接受的输入必须是表达式
+
+
+
+> 强制转换类型：将字符串123转换为``int``型
+
+ ```python
+a=int("123")
+print(type(a))  #打印出a的类型
+b=a+100
+print(b)
+ ```
+
+
+
+## 5.判断语句和循环语句
+
+### 5.1条件判断语句
+
+- Python指定任何非0和非空值为``true ``，0或none为``false``
+
+- python编程中``if语句``用于控制程序的执行
+
+  ```python
+  if 判断条件1：
+  	执行语句1
+  elif 判断条件2：
+  	执行语句2
+  else：
+  	执行语句3
+  ```
+
+  > 实现同级到的功能需要有相同的缩进（tab键）
+
+```python
+import random 	#引入随机库
+x = random.randint(0,2) 	#随机生成[0,2]的随机数，包含0，1，2三个数字
+```
+
+ 
+
+### 5.2循环语句
+
+#### 5.2.1	for...in循环
+
+Python的循环有两种，一种是for…in循环，可以一次把list或tuple中的元素迭代出来
+
+```python
+for i in range(5):
+	print(i)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113170836116.png)
+
+
+
+```python
+for i in range(0,10,3):	#从0开始，到10结束，步进值为3（每次加三）
+	print(i)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113171249335.png)
+
+
+
+```python
+name = "wuhan"
+for x in name:	#把每一个字母提取出来
+	print(x,end="\t")
+```
+
+![字符串表示](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113171850271.png)
+
+
+
+```python
+a=["aa","bb","cc","dd"]
+for i in range(len(a)):
+	print(i,a[i])
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113200510574.png)
+
+
+
+#### 5.2.2	while循环
+
+```python
+i=0
+while i<5:
+	print("当前是第%d次执行循环"%(i+1))
+	print("i=%d"%i)
+	i+=1
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113201530844.png)
+
+
+
+```python
+# 1-100求和
+sum=0
+counter=1
+while counter<=100:
+    sum += counter
+    counter += 1
+print("%d"%sum)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113205100075.png)
+
+
+
+> while...else语句
+
+```python
+count=0
+while count<5:
+	print(count,"小于5")
+	count+=1
+else：
+	print(count,"大于或等于5")
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113205849360.png)
+
+
+
+> break语块
+
+```python
+i=0
+while i<10:
+	i=i+1
+	print("-"*30)
+	if i==5:
+		break	#结束整个while循环 
+	print(i)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113210738434.png)
+
+
+
+> continue语块
+
+```python
+i=0
+while i<10:
+	i=i+1
+	print("-"*30)
+	if i==5:
+		continue	#结束本次循环（跳过） 
+	print(i)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113211010382.png)
+
+
+
+```python
+#打印出99乘法表
+for i in range(1,10):
+    for j in range(1,i+1):
+        print("%d*%d=%d"%(i,j,i*j),end=" ")
+    print("")
+print("")
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210113213020820.png)
+
+
+
+## 6.字符串
+
+> python中的字符串可以用单引号、双引号和三引号（三个单引号或双引号）括起来，使用反斜杠转义特殊字符
+
+```python
+_str='i\'m a student'	#反斜杠加单引号可正常输出单引号
+print(_str)
+```
+
+```python
+_str="jason said \"i like you\""
+print(_str)
+```
+
+
+
+```python
+str="wuhan"
+print(str[0:4])		#[起始位置：结束位置：步进值]
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114012739124.png)
+
+
+
+```python
+str="wuhan"
+print(str+",hello")		#字符串连接使用加号
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114012236441.png)
+
+
+
+```python
+print(r"hello\nwuhan")		#在字符串前面加r，表示直接显示原始字符串，不进行转义
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114012527356.png)
+
+
+
+
+
+## 7.列表
+
+```python
+list=["Karry","Mike","Amy"]
+print(list[0])
+print(list[1])
+print(list[2])
+print(list[-1])
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114135716330.png)
+
+
+
+```python
+list=[1,"Karry"]	#列表中可以存储混合类型
+```
+
+
+
+```python
+namelist=namelist=["Karry","Mike","Amy"]
+for name in namelist:		#采用for循环打印
+	print(name)
+print(len(namelist))		#len()可以得到列表的长度
+```
+
+
+
+```python
+namelist=["Karry","Mike","Amy"]
+length=len(namelist)
+i=0
+while i<length:			#采用while循环打印
+	print(namelist[i])
+	i+=1
+```
+
+### 增：
+
+```python
+#	【append】
+namelist=["Karry","Mike","Amy"]
+print("增加前名单列表数据")
+for name in namelist:
+	print(name)
+nametemp=input("输入学生姓名")
+namelist.append(nametemp)		#在末尾追加一个元素。如果namelist是一个列表，则将namelist当做一个元素（整体），加入到列表中 
+print("增加后名单列表数据")
+for name in namelist:
+	print(name)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114165035421.png)
+
+
+
+```python
+#  【extend】
+a=[1,2]
+b=[3,4]
+print(a)
+a.extend(b)			#将b列表中每个元素逐一增加到a列表中
+print(a)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114165549168.png)
+
+
+
+```python
+# 【insert】	指定下标位置插入元素
+a=[0,1,2]
+a.insert(1,3)		#第一个变量表示下标，第二个表示元素（对象）
+print(a)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114170322698.png)
+
+
+
+### 删：
+
+ ```python
+#  【del】
+moviename=["速度与激情","加勒比海盗","复仇者联盟"]
+del moviename[2]		#在指定位置删除一个元素
+print("删除后的列表")
+for name in moviename:
+    print(name)
+ ```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114171059042.png)
+
+
+
+```python
+#  【pop】
+moviename=["速度与激情","加勒比海盗","复仇者联盟"]
+moviename.pop()		#弹出末尾最后一个元素
+print("删除后的列表")
+for name in moviename:
+    print(name)
+```
+
+
+
+```python
+#  【remove】
+moviename=["速度与激情","加勒比海盗","复仇者联盟"]
+moviename.remove("速度与激情")		#直接删除指定内容的元素。当有多个元素重复时，删除找到的第一个
+print("删除后的列表")
+for name in moviename:
+    print(name)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114171758897.png)
+
+
+
+### 改：
+
+```python
+namelist=["Karry","Mike","Amy"]
+print("修改前名单列表数据")
+for name in namelist:
+	print(name)
+namelist[1]="Jerry"		#修改指定下标的元素内容
+print("修改后名单列表数据")
+for name in namelist:
+	print(name)
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114172345173.png)
+
+
+
+### 查：
+
+```python
+#  【in	，not in】
+namelist=["Karry","Mike","Amy"]
+findname=input("输入要查找的学生姓名")
+if findname in namelist:		#in 查找
+    print("在名单里找到")
+else:
+    print("没有找到")
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210114191325998.png)
+
+
+
+```python
+#	index
+a=["a","b","c","d"]
+print(a.index("c",1,3))		#可以查找指定下标范围的元素，并返回找到对应数据的下标
+```
+
+
+
+```python
+a=["a","b","c","d"]
+print(a.index("c",1,2))		#范围区间为左闭右开
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210122233826445.png)
+
+
+
+```python
+#	count
+a=["a","b","c","b"]
+print(a.count("b"))		#统计某个元素出现的次数
+```
+
+
+
+```python
+#	reverse
+a=["a","b","c","b"]
+a.reverse()		#将列表所有元素反转
+print(a)
+```
+
+
+
+
+
+```python
+#	sort
+a=[2,1,5,4]
+a.sort()	#升序
+a.sort(reverse=True)		#降序
+print(a)
+```
+
+
+
+```python
+#  schoolnames=[[],[],[]]	有三个元素的空列表，每个元素都是一个空列表
+schoolname=[["清华大学","北京大学"],["武汉大学","华中科技大学","中南民族大学"],["贵州大学","贵州师范大学"]]
+print(schoolname[0][0])
+```
+
+
+
+---
+
+```python
+#	将8个老师随机放进3间办公室
+
+import random		#引入随机库，生成随机数
+
+offices=[[],[],[]]
+names=["a","b","c","d","e","f","g","h"]
+for name in names:
+    index=random.randint(0,2)
+    offices[index].append(name)
+
+i=1
+for office in offices:
+    print("办公室%d人数为：%d"%(i,len(office)))
+    i+=1
+    for name in office:
+        print("%s"%name,end="\t")
+    print("\n")
+```
+
+![](C:\Users\15821\AppData\Roaming\Typora\typora-user-images\image-20210123125643677.png)
